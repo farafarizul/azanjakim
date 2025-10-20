@@ -1,0 +1,34 @@
+# Node.js
+node_modules/
+
+# Electron build folders
+dist/
+build/
+
+# Log files
+*.log
+
+# Environment variables
+.env
+
+# Electron-specific binaries
+*.exe
+*.dmg
+*.AppImage
+
+# ASAR files
+*.asar
+
+# TypeScript build files (if using TypeScript)
+*.tsbuildinfo
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+.directory
+
+# IDE/Editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
