@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="node_modules/jquery/dist/jquery.min.js"></script> <!-- Include jQuery -->
+    <title>Settings</title>
+</head>
+<body>
+<h1>Settings</h1>
+<label>
+    <input type="checkbox" id="startup-checkbox"> Run automatically on Windows startup
+</label>
+
+<script>
+    const { ipcRenderer } = require('electron');
+
+    const checkbox = document.getElementById('startup-checkbox');
+
+    // Send the current startup status to the renderer process
+    ipcRenderer.invoke('get-startup-status').then(status => {
+        checkbox.checked = status;
+    });
+
+    // Listen for checkbox changes
+    checkbox.addEventListener('change', () => {
+        ipcRenderer.send('toggle-startup', checkbox.checked);
+    });
+</script>
+</body>
+</html>

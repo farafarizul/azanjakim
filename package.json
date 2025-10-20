@@ -1,0 +1,23 @@
+{
+  "name": "azan",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^38.3.0"
+  },
+  "dependencies": {
+    "auto-launch": "^5.0.6",
+    "bootstrap": "^5.3.8",
+    "electron-is-dev": "^3.0.1",
+    "electron-updater": "^6.6.2",
+    "jquery": "^3.7.1"
+  }
+}
