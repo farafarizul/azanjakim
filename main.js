@@ -2,6 +2,7 @@ const { app, BrowserWindow, Menu, ipcMain, Tray } = require('electron');
 const path = require('path');
 const isDev = require('electron-is-dev');
 const appName = "Azan JAKIM";  // Define your app name here
+const fs = require('fs');
 
 let mainWindow;
 let tray;
@@ -161,6 +162,17 @@ ipcMain.on('toggle-startup', (event, arg) => {
         autoStart.enable();
     } else {
         autoStart.disable();
+    }
+});
+
+// Handle the request from renderer to read JSON file
+ipcMain.handle('read-json', async (event, filePath) => {
+    try {
+        const data = fs.readFileSync(filePath, 'utf8'); // Read synchronously in the main process
+        return JSON.parse(data);
+    } catch (error) {
+        console.error('Error reading JSON file:', error);
+        return null;
     }
 });
 
